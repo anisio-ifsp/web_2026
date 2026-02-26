@@ -12,6 +12,8 @@ let idadeOuNulo: string | null | 3 = 3;
 
 console.log(`Nome: ${nome}, Idade: ${idade}, Ativo: ${ativo}`);
 
+let valor = 42;
+console.log(typeof valor);
 
 
 
