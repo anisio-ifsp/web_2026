@@ -1,0 +1,1 @@
+// array.map<U>(callback: (value: T, index: number) => U): U[]
