@@ -6,6 +6,7 @@ const semDuplicados = numeros.filter( (valor, indice, self) => {
 
 console.log(semDuplicados);
 
+
 let pares: number[] = numeros.filter(n => n % 2 === 0);
 
 let maioresQueTres = numeros.filter(n => n > 3);

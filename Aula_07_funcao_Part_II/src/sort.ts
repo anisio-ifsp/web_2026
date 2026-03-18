@@ -1,5 +1,6 @@
 const numerosX: number[] = [33 ,22 ,1 ,2, 5, 4, 3];
 numerosX.sort();
+console.log(numerosX)
 numerosX.sort((a,b)=> b - a);
 console.log(numerosX)
 

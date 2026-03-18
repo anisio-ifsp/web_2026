@@ -1,5 +1,6 @@
 // array.map<U>(callback: (value: T, index: number) => U): U[]
 const numeros: number[] = [1 ,2, 3, 4, 5];
+
 const dobro: number[] = numeros.map(n => n*2);
 const string: string[] = numeros.map(n => `Número: ${n}`);
 console.log(string);
