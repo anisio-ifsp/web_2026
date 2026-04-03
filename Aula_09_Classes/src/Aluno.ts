@@ -4,7 +4,7 @@ export class Aluno{
     curso: string;
     matricula: string;
 
-    constructor(idade: number,nome: string,curso: string,matricula: string){
+    constructor(idade: number, nome: string,curso: string,matricula: string){
         this.nome = nome;
         this.idade = idade;
         this.curso = curso;
