@@ -51,6 +51,6 @@ function criarProduto(req: Request, res: Response):void{
 
 app.get('/api/produto/:id', filtraProdutoPorID);
 app.get('/api/produto', filtraProdutoPorNome);
-app.post('/api/produto',criaProduto);
+app.post('/api/produto',criarProduto);
 
 app.listen(PORT, () => console.log(`API rodando na URL : http://localhost:${PORT}`));
