@@ -5,50 +5,52 @@ const app = express();
 const PORT = process.env.PORT ?? 3000;
 app.use(express.json());
 
-function helloWorld(req: Request, res: Response): void {
+const produtos: Produto[] =[];
+
+function hellworld(req: Request, res: Response):void{
     res.status(200).send('Hello World!!');
-
 }
 
-function filtraProdutoPorID(req: Request, res: Response): void {
-    try {
-        let id = req.params.id
-        res.status(200).json({ ID: id })
-    } catch (e: unknown) {
-        res.status(400).json({ Message: "Necessário informar o ID" })
+function filtraProdutoPorID(req: Request, res: Response):void{
+    try{
+        let id:any = req.params.id;
+        
+        res.status(200).json({ID: id});
+
+    }catch(e: unknown){
+        res.status(400).json({Message: "Necessário informar um ID válido"});
     }
 }
 
-function filtrarProdutoPorNome(req: Request, res: Response): void {
-    try {
-        let name = req.query.name
-        res.status(200).json({ Name: name })
-    } catch (e: unknown) {
-        res.status(400).json({ Message: "Necessário informar o nome" })
+function filtraProdutoPorNome(req: Request, res: Response):void{
+    try{
+        let name:any = req.query.name;
+        
+        res.status(200).json({Name: name });
+
+    }catch(e: unknown){
+        res.status(400).json({Message: "Necessário informar um ID válido"});
     }
 }
 
-function novoProduto(req: Request, res: Response): void {
-    try {
-        let data: any = req.body
-
-        if (!data.nome || !data.preco || !data.fabricante) {
-            throw new Error("Produto requer nome, preço e fabricante")
+function criarProduto(req: Request, res: Response):void{
+    try{
+        let data:any = req.body;
+        if(!data.nome || !data.preco || !data.fabricante){
+            throw new Error("Favor enviar os valores corretos");
         }
 
-        const produto = new Produto(data.id, data.nome, data.preco, data.fabricante)
-        res.status(200).json(produto)
-    } catch (e: unknown) {
-        res.status(400).json({ Message: (e as Error).message })
+        let produto = new Produto(1,data.nome,data.preco,data.fabricante);
+        produtos.push(produto);
+        res.status(201).json(produto);
+
+    }catch(e: unknown){
+        res.status(400).json({Message: "Necessário informar as informações do produto."});
     }
 }
 
-app.get('/api/hello/:id', helloWorld)
-
-app.get('/api/product/:id', filtraProdutoPorID)
-app.get('/api/product', filtrarProdutoPorNome)
-app.post('/api/product', novoProduto)
+app.get('/api/produto/:id', filtraProdutoPorID);
+app.get('/api/produto', filtraProdutoPorNome);
+app.post('/api/produto',criaProduto);
 
 app.listen(PORT, () => console.log(`API rodando na URL : http://localhost:${PORT}`));
-
-

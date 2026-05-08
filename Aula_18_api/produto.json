@@ -1,0 +1,12 @@
+    {
+        "id": 1,
+        "nome": "Caderno",
+        "preco": 12.99,
+        "fabricante": {
+            "nome": "Tilibra",
+            "endereco": {
+                "cidade": "São Paulo",
+                "pais": "Brasil"
+            }
+        }
+    }
