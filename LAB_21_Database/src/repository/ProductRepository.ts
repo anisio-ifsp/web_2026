@@ -25,7 +25,7 @@ export class ProductRepository {
 
     async insertProduct(product: Product): Promise<Product> {
         const resultado = await executarComandoSQL(
-            "INSERT INTO vendas.Product (name, price) VALUES (?, ?)",
+            "INSERT INTO Product (name, price) VALUES (?, ?)",
             [product.name, product.price]
         );
 
@@ -38,7 +38,7 @@ export class ProductRepository {
     }
 
     async findAll(): Promise<Product[]> {
-        const linhas = await executarComandoSQL("SELECT id, name, price FROM vendas.Product", []);
+        const linhas = await executarComandoSQL("SELECT id, name, price FROM Product", []);
 
         // O MySQL retorna um array de objetos puros. Mapeamos para objetos da classe Product.
         const produtos: Product[] = linhas.map((linha: any) => {
@@ -50,7 +50,7 @@ export class ProductRepository {
 
     async findById(id: number): Promise<Product | null> {
         const linhas = await executarComandoSQL(
-            "SELECT id, name, price FROM vendas.Product WHERE id = ?",
+            "SELECT id, name, price FROM Product WHERE id = ?",
             [id]
         );
 
