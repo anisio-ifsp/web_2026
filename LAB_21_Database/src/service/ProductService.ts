@@ -10,7 +10,7 @@ export class ProductService {
         }
 
         const novoProduct = new Product(null, data.name, Number(data.price));
-
+        
         return this.productRepository.insertProduct(novoProduct);
     }
 
